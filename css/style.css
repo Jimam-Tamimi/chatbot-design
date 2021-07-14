@@ -22,7 +22,7 @@
     background: #5A5EB9;
     border-radius: 100px;
     /* transition: all .4s cubic-bezier(0.075, 0.82, 0.165, 1); */
-    transition: all .4s ease-out;
+    transition: all .4s ease-in-out;
     position: absolute;
     bottom: 0;
     right: 0;
@@ -50,7 +50,7 @@
     bottom: 25px;
     height: 82vh;
     max-height: 100vh;
-    transition: all .4s ease-out;
+    transition: all .4s ease-in-out;
     box-shadow: 0px 5px 35px 9px #ccc;
     border-radius: 5px;
 }
