@@ -1,8 +1,12 @@
+let allMessageSection = document.getElementById('all-message')
+allMessageSection.scrollTop = allMessageSection.scrollHeight;
+
 let msgSectionOpener = document.getElementById('msg-section-opener')
 let msgSection = document.getElementById('msg-section')
 let msgSectionClose = document.getElementById('msg-section-close')
 let msgSectionExpand = document.getElementById('msg-section-expand')
-
+let sendMessageBtn = document.getElementById('send-message')
+let message = document.getElementById('message')
 
 msgSectionOpener.addEventListener('click', (e)=>{
     // hide the msg section openner
@@ -31,3 +35,36 @@ msgSectionExpand.addEventListener('click', (e)=>{
 
     }
 })
+
+
+// running sendMsg function onclick of send  message button
+sendMessageBtn.addEventListener('click', (e)=>{
+    let msg = message.value
+    sendMessage(msg)    
+})
+
+// sending message on enter key press
+message.addEventListener("keyup", (event) => {
+    if (event.key === "Enter") {
+        event.preventDefault();
+        let msg = message.value
+        sendMessage(msg)
+    }
+})
+
+
+// function for showing message to frontend
+function sendMessage(msg) {
+    allMessageSection.innerHTML += `
+    <div class="message">
+        <div class="sent message-status">
+            <p>${msg}</p>
+        </div>
+    </div>
+    `
+    message.value = ''
+    allMessageSection.scrollTop = allMessageSection.scrollHeight;
+}
+
+
+
