@@ -20,6 +20,7 @@ msgSectionClose.addEventListener('click', (e)=>{
     msgSectionOpener.classList.remove("hide")
     // hide the msg section 
     msgSection.classList.add("hide")
+    
 
 })
 
@@ -55,6 +56,9 @@ message.addEventListener("keyup", (event) => {
 
 // function for showing message to frontend
 function sendMessage(msg) {
+    if(msg.replaceAll(' ', '') == ''){
+        return
+    }
     allMessageSection.innerHTML += `
     <div class="message">
         <div class="sent message-status">
